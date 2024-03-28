@@ -6,18 +6,17 @@
 #    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/30 19:58:25 by galo              #+#    #+#              #
-#    Updated: 2024/03/28 22:20:52 by muyucego         ###   ########.fr        #
+#    Updated: 2024/03/29 02:22:59 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-HEADERS =	so_long.h \
-		mlx/mlx.h
+HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
 
 INCLUDES =	mlx/libmlx.a
 
-SOURCES =	so_long.c
+SOURCES =	so_long.c map_checker.c utils.c
 
 DIR_OBJ	= objects
 OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))
