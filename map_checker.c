@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:35:16 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/29 02:22:23 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:55:28 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,17 @@ void	ft_check_map_name(t_data_map *data)
 	if (ft_strcmp(&data->txt[ft_strlen(data->txt) - 4], ".ber") != 0
 		|| ft_strlen(data->txt) <= 4)
 			ft_put_error(4);
+}
+
+void	ft_check_map_data(t_data_map *data)
+{
+	char	*file_path;
+	char	*line;
+	int fd;
+
+	file_path = data->txt;
+	fd = open(file_path, O_RDONLY);
+	line = get_next_line(fd);
+	if (!line)
+		ft_put_error(7);
 }

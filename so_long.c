@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:41 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/29 02:25:20 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:54:09 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
         // Map Check
         game.map_data.txt = av[1];
         ft_check_map_name(&game.map_data);
+        ft_check_map_data(&game.map_data);
         // XPM
         game.img_data.height = 40;
         game.img_data.width = 40;

@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:06 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/29 02:22:00 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/03/29 02:52:52 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int	    ft_strlen(char *str);
 int     ft_strcmp(char *s1, char *s2);
 void    ft_put_error(int err_no);
 void	ft_check_map_name(t_data_map *data);
+void	ft_check_map_data(t_data_map *data);
 
 #endif
