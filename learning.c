@@ -106,7 +106,7 @@ int main()
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
     // triangle(&img, 250);
-    // reverse_triangle(&img, 250);
+    reverse_triangle(&img, 250);
     // squares(&img, 250);
     //  circle(&img, 250, 250, 100);
     mlx_put_image_to_window(game.game, game.window, img.img, 0,0);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
+#    By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/30 19:58:25 by galo              #+#    #+#              #
-#    Updated: 2024/03/29 03:23:19 by muyucego         ###   ########.fr        #
+#    Updated: 2024/03/29 18:00:03 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
 
 INCLUDES =	mlx/libmlx.a
 
-SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c
+SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c
 
 DIR_OBJ	= objects
 OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))
