@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:11:52 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/30 00:16:08 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:02:30 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_exit(t_game *game)
 {
-	mlx_destroy_image(game->game, game->img);
-	//mlx_clear_window(game.game, game.window);
+	//mlx_destroy_image(game->game, game->img_data.player);
 	mlx_destroy_window(game->game, game->window);
 	free(game);
+	free(game->game);
 	system("leaks so_long");
 	exit(1);
 }
