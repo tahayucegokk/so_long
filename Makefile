@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+         #
+#    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/30 19:58:25 by galo              #+#    #+#              #
-#    Updated: 2024/03/29 18:00:03 by muyucego         ###   ########.fr        #
+#    Updated: 2024/04/02 01:52:23 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
 
 INCLUDES =	mlx/libmlx.a
 
-SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c
+SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c
 
 DIR_OBJ	= objects
 OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))
@@ -34,7 +34,8 @@ all	:	make_lib make_dir $(NAME)
 
 make_lib:
 		@make -C mlx
-		@echo "\n\n minilibx complete!\n\n"
+		@echo "\033[0;92m\nLoading"
+		@echo "\033[0m"
 
 make_dir:
 		@mkdir -p $(DIR_OBJ)
@@ -43,20 +44,16 @@ $(DIR_OBJ)/%.o: %.c $(HEADERS) | make_dir
 		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJECTS) $(HEADERS)
-	@echo "Compiling so long"
+
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME)
-	@echo "Done!"
 
 clean	:
-	@echo "Removing (so_long) objects..."
-	@make clean -C mlx
+	@echo "\033[0;91m\nCleaning"
+	@echo "\033[0m"
 	@rm -rf $(DIR_OBJ)
-	@echo "Done!"
 
 fclean	:	clean
-	@echo "Removing execute (so_long)..."
 	@rm -rf $(NAME)
-	@echo "Done!"
 
 re	:	fclean all
 

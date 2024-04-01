@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:41 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 00:03:02 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:15:51 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,29 @@ void    ft_setup_game(t_game *game)
 {
     // MiniLibX Window
     game->game = mlx_init();
-    game->width = 1200;
-    game->height = 800;
+    game->width = game->map_data.width * 40;
+    game->height = game->map_data.height * 40;
     game->window = mlx_new_window(game->game, game->width, game->height, "so_long");
     game->img_data.height = 40;
     game->img_data.width = 40;
 }
 
+void    ft_xpm_to_image(t_game *game)
+{
+    game->img_data.wall = mlx_xpm_file_to_image(game->game, "images/wall.xpm", 
+        &game->img_data.width, &game->img_data.height);
+    game->img_data.player = mlx_xpm_file_to_image(game->game, "images/player.xpm", 
+        &game->img_data.width, &game->img_data.height);
+    game->img_data.coin = mlx_xpm_file_to_image(game->game, "images/coin.xpm", 
+        &game->img_data.width, &game->img_data.height);
+    game->img_data.exit = mlx_xpm_file_to_image(game->game, "images/exit.xpm", 
+        &game->img_data.width, &game->img_data.height);
+    game->img_data.empty = mlx_xpm_file_to_image(game->game, "images/empty.xpm", 
+        &game->img_data.width, &game->img_data.height);
+    if (!game->img_data.wall || !game->img_data.player || !game->img_data.empty 
+        || !game->img_data.exit || !game->img_data.coin)
+        ft_put_error(9);
+}
 
 int main(int ac, char **av)
 {
@@ -39,19 +55,12 @@ int main(int ac, char **av)
     {
         t_game *game;
         game = malloc(sizeof(t_game));
-        ft_setup_game(game);
         ft_map_control(game, av[1]);
         ft_lenght_map_data(&game->map_data);
+        ft_setup_game(game);
+        ft_xpm_to_image(game);
 		ft_malloc_map(&game->map_data);
-        ft_free_map(&game->map_data);
-        // XPM
-        //game->img_data.player = mlx_xpm_file_to_image(game->game, "images/player.xpm", &game->img_data.width, &game->img_data.height);
-        // Check IMG
-        //if (!game->img_data.player)
-            //ft_put_error(9);
-        // Print IMG
-        //mlx_put_image_to_window(game->game, game->window, game->img_data.player, game->img_data.height, game->img_data.width);
-        // Execute
+        ft_draw_map(game);
         mlx_hook(game->window, 17, 0L << 0, ft_exit, game);
         mlx_hook(game->window, 2, 0, ft_key_event, game);
         mlx_loop(game->game);

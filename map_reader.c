@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 03:20:18 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/31 22:56:23 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:41:58 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_free_map(t_data_map *data)
 		i++;
 	}
 	free(data->map);
+	data->map = NULL;
 }
 
 void	ft_malloc_map(t_data_map *data)
