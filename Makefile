@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/30 19:58:25 by galo              #+#    #+#              #
-#    Updated: 2024/04/02 19:54:13 by muyucego         ###   ########.fr        #
+#    Created: 2023/04/30 19:58:25 by muyucego          #+#    #+#              #
+#    Updated: 2024/04/03 00:09:55 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
 
 INCLUDES =	mlx/libmlx.a
 
-SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c game_is_possible.c
+SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c game_is_possible.c movement.c
 
 DIR_OBJ	= objects
 OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))
@@ -33,9 +33,9 @@ vpath %.c sources get_next_line
 all	:	make_lib make_dir $(NAME)
 
 make_lib:
-		@make -C mlx
 		@echo "\033[0;92m\nLoading"
 		@echo "\033[0m"
+		@make -C mlx
 
 make_dir:
 		@mkdir -p $(DIR_OBJ)
@@ -50,6 +50,7 @@ $(NAME)	:	$(OBJECTS) $(HEADERS)
 clean	:
 	@echo "\033[0;91m\nCleaning"
 	@echo "\033[0m"
+	@make -C mlx clean
 	@rm -rf $(DIR_OBJ)
 
 fclean	:	clean

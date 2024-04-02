@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:06 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 20:05:23 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 23:56:29 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include "mlx/mlx.h"
 #include <stdlib.h>
 #include "./get_next_line/get_next_line.h"
+
+# define ESC	53
+# define W		13
+# define A		0
+# define S		1
+# define D		2
 
 typedef struct	s_img {
     int height;
@@ -35,6 +41,10 @@ typedef struct	s_map {
         char			**map;
         int             player_count;
         int             coin_count;
+        int             x;
+        int             y;
+        int             step;
+        int             finish;
 }				t_data_map;
 
 typedef struct s_game
@@ -68,5 +78,10 @@ void	put_wall_img(t_game *game, int x, int a);
 void    ft_xpm_to_image(t_game *game);
 int     ft_check_row(t_data_map *data, char obj);
 int     ft_check_col(t_data_map *data, char obj);
+void    ft_find_player_loc(t_data_map *data);
+void	move_w(t_data_map *data);
+void	move_a(t_data_map *data);
+void	move_s(t_data_map *data);
+void	move_d(t_data_map *data);
 
 #endif

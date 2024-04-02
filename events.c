@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:11:52 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 02:31:16 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 23:42:29 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,15 @@ int	ft_exit(t_game *game)
 
 int	ft_key_event(int key, t_game *game)
 {
-	if (key == 53)
+	if (key == ESC)
 		ft_exit(game);
+	else if (key == W && game->map_data.finish == 0)
+		move_w(&game->map_data);
+	else if (key == S && game->map_data.finish == 0)
+		move_s(&game->map_data);
+	else if (key == A && game->map_data.finish == 0)
+		move_a(&game->map_data);
+	else if (key == D && game->map_data.finish == 0)
+		move_d(&game->map_data);
 	return(1);
 }
