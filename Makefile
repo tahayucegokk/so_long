@@ -6,7 +6,7 @@
 #    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/30 19:58:25 by galo              #+#    #+#              #
-#    Updated: 2024/04/02 02:39:30 by muyucego         ###   ########.fr        #
+#    Updated: 2024/04/02 19:54:13 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
 
 INCLUDES =	mlx/libmlx.a
 
-SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c
+SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c game_is_possible.c
 
 DIR_OBJ	= objects
 OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))

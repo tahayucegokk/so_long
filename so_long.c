@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:41 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 03:14:37 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 20:39:11 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void    ft_map_control(t_game *game)
     ft_check_map_inputs(&game->map_data);
     ft_check_outline(&game->map_data);
     ft_check_map_objects(&game->map_data);
+    if (ft_check_row(&game->map_data, 'P') && ft_check_col(&game->map_data, 'P'))
+        ft_put_error(3);
+    if (ft_check_row(&game->map_data, 'C') && ft_check_col(&game->map_data, 'C'))
+        ft_put_error(3);
+    if (ft_check_row(&game->map_data, 'E') && ft_check_col(&game->map_data, 'E'))
+        ft_put_error(3);
 }
 
 void    ft_setup_game(t_game *game)
