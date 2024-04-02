@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:06 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 01:20:35 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 03:08:00 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ typedef struct	s_map {
         int             height;
         int             width;
         char			**map;
+        int             player_count;
+        int             coin_count;
 }				t_data_map;
 
 typedef struct s_game
 {
     void *window;
     void *game;
-    int coin_size;
     int width;
     int height;
     t_data_img img_data;
@@ -48,10 +49,14 @@ typedef struct s_game
 
 int	    ft_strlen(char *str);
 char	*ft_strcpy(char *s1, char *s2);
+void	ft_putnbr(unsigned int n);
 char	*ft_strdup(char *str);
 int     ft_strcmp(char *s1, char *s2);
 void    ft_put_error(int err_no);
 void	ft_check_map_name(t_data_map *data);
+void	ft_check_outline(t_data_map *data);
+void	ft_check_map_objects(t_data_map *data);
+void	ft_check_map_inputs(t_data_map *data);
 void	ft_lenght_map_data(t_data_map *data);
 void	ft_malloc_map(t_data_map *data);
 int	    ft_exit(t_game *game);

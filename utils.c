@@ -6,11 +6,12 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:04:36 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/31 19:08:23 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 02:50:39 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
@@ -52,4 +53,11 @@ char	*ft_strdup(char *str)
 	result = malloc(sizeof(char) * (i + 1));
 	ft_strcpy(result, str);
 	return (result);
+}
+
+void	ft_putnbr(unsigned int n)
+{
+	if (n > 9)
+		ft_putnbr(n / 10);
+	write(1, &"0123456789"[n % 10], 1);
 }

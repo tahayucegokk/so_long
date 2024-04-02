@@ -6,19 +6,17 @@
 /*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:41 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 01:15:51 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/02 03:14:37 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    ft_map_control(t_game *game, char *game_name)
+void    ft_map_control(t_game *game)
 {
-        // Map Check
-        game->map_data.txt = game_name;
-        ft_check_map_name(&game->map_data);
-        // Map Read
-        ft_lenght_map_data(&game->map_data);
+    ft_check_map_inputs(&game->map_data);
+    ft_check_outline(&game->map_data);
+    ft_check_map_objects(&game->map_data);
 }
 
 void    ft_setup_game(t_game *game)
@@ -30,6 +28,8 @@ void    ft_setup_game(t_game *game)
     game->window = mlx_new_window(game->game, game->width, game->height, "so_long");
     game->img_data.height = 40;
     game->img_data.width = 40;
+    game->map_data.coin_count = 0;
+    game->map_data.player_count = 0;
 }
 
 void    ft_xpm_to_image(t_game *game)
@@ -55,11 +55,13 @@ int main(int ac, char **av)
     {
         t_game *game;
         game = malloc(sizeof(t_game));
-        ft_map_control(game, av[1]);
+        game->map_data.txt = av[1];
+        ft_check_map_name(&game->map_data);
         ft_lenght_map_data(&game->map_data);
         ft_setup_game(game);
         ft_xpm_to_image(game);
 		ft_malloc_map(&game->map_data);
+        ft_map_control(game);
         ft_draw_map(game);
         mlx_hook(game->window, 17, 0L << 0, ft_exit, game);
         mlx_hook(game->window, 2, 0, ft_key_event, game);
