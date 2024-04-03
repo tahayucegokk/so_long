@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:23:59 by muyucego          #+#    #+#             */
-/*   Updated: 2024/03/28 22:10:20 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:33:57 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

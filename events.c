@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:11:52 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 23:42:29 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:13:01 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_exit(t_game *game)
 	mlx_destroy_window(game->game, game->window);
 	ft_free_map(&game->map_data);
 	free(game);
-	system("leaks so_long");
 	exit(1);
 }
 
@@ -43,5 +42,5 @@ int	ft_key_event(int key, t_game *game)
 		move_a(&game->map_data);
 	else if (key == D && game->map_data.finish == 0)
 		move_d(&game->map_data);
-	return(1);
+	return (1);
 }

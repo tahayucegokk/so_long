@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+         #
+#    By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/30 19:58:25 by muyucego          #+#    #+#              #
-#    Updated: 2024/04/03 00:09:55 by muyucego         ###   ########.fr        #
+#    Updated: 2024/04/03 17:03:30 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ vpath %.c sources get_next_line
 all	:	make_lib make_dir $(NAME)
 
 make_lib:
-		@echo "\033[0;92m\nLoading"
-		@echo "\033[0m"
 		@make -C mlx
 
 make_dir:
@@ -43,7 +41,7 @@ make_dir:
 $(DIR_OBJ)/%.o: %.c $(HEADERS) | make_dir
 		@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME)	:	$(OBJECTS) $(HEADERS)
+$(NAME)	: $(OBJECTS) $(HEADERS)
 
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME)
 
