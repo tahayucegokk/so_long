@@ -5,55 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/30 19:58:25 by muyucego          #+#    #+#              #
-#    Updated: 2024/04/03 17:03:30 by muyucego         ###   ########.fr        #
+#    Created: 2024/04/03 18:17:29 by muyucego          #+#    #+#              #
+#    Updated: 2024/04/03 18:22:52 by muyucego         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME = so_long
-
-HEADERS =	so_long.h mlx/mlx.h ./get_next_line/get_next_line.h
-
-INCLUDES =	mlx/libmlx.a
-
-SOURCES =	so_long.c map_checker.c utils.c get_next_line.c get_next_line_utils.c map_reader.c events.c draw_map.c game_is_possible.c movement.c
-
-DIR_OBJ	= objects
-OBJECTS = $(addprefix $(DIR_OBJ)/,$(SOURCES:%.c=%.o))
-
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
-
-MLX_FLAGS = -g -Lmlx -lmlx -framework OpenGL -framework Appkit
+FLAGS = -Wall -Wextra -Werror 
 
 
+SRCS = draw_map.c events.c game_is_possible.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c map_checker.c map_reader.c movement.c so_long.c utils.c
+                          
+OBJS = $(SRCS:.c=.o)
 
-vpath %.c sources get_next_line
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-all	:	make_lib make_dir $(NAME)
+$(NAME): ${OBJS}
+			@ make -C mlx all 
+			@ cp ./mlx/libmlx.a .
+			$(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) -Imlx $(OBJS) -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
 
-make_lib:
-		@make -C mlx
+all:		${NAME}
 
-make_dir:
-		@mkdir -p $(DIR_OBJ)
+clean:
+			@ rm -rf $(NAME)
+			@ rm -rf $(OBJS)
+			@ make -C mlx clean
 
-$(DIR_OBJ)/%.o: %.c $(HEADERS) | make_dir
-		@$(CC) $(CFLAGS) -c $< -o $@
+fclean:		clean
+			@ rm libmlx.a
 
-$(NAME)	: $(OBJECTS) $(HEADERS)
+re:			fclean all
 
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(INCLUDES) -o $(NAME)
-
-clean	:
-	@echo "\033[0;91m\nCleaning"
-	@echo "\033[0m"
-	@make -C mlx clean
-	@rm -rf $(DIR_OBJ)
-
-fclean	:	clean
-	@rm -rf $(NAME)
-
-re	:	fclean all
-
-.PHONY : all clean fclean re make_dir make_lib
+.PHONY:		all clean fclean re

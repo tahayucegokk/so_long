@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:41 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/03 17:02:52 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:48:21 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_map_control(t_game *game)
 			game->map_data.y, game->map_data.dup_map))
 		ft_put_error(3);
 	if (game->map_data.check_coin_count != game->map_data.coin_count)
-		ft_put_error(3);
+		ft_put_error(4);
 }
 
 void	ft_setup_game(t_game *game)

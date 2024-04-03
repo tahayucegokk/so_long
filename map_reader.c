@@ -6,14 +6,13 @@
 /*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 03:20:18 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/03 17:00:31 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:39:06 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <fcntl.h>
 #include <unistd.h>
-
 void	ft_length_map_data(t_data_map *data)
 {
 	char	*file_path;
@@ -29,8 +28,6 @@ void	ft_length_map_data(t_data_map *data)
 	data->height = 0;
 	while (line)
 	{
-		if (ft_strlen(line) - 1 != data->width)
-			ft_put_error(8);
 		data->height++;
 		free(line);
 		line = get_next_line(fd);

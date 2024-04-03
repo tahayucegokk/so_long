@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muyucego <muyucego@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 01:35:16 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/02 03:16:04 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:33:08 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_put_error(int err_no)
 	if (err_no == 6)
 		write(2, "\e[0;31mMap not malloc\n", 22);
 	if (err_no == 7)
-		write(2, "\e[0;31mMap not read\n", 21);
+		write(2, "\e[0;31mMap not read\n", 20);
 	if (err_no == 8)
-		write(2, "\e[0;31mMap not valid\n", 20);
+		write(2, "\e[0;31mMap not valid\n", 21);
 	if (err_no == 9)
 		write(2, "\e[0;31mERROR!\n", 14);
 	exit(EXIT_FAILURE);

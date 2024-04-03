@@ -6,7 +6,7 @@
 /*   By: muyucego <muyucego@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 21:52:06 by muyucego          #+#    #+#             */
-/*   Updated: 2024/04/03 16:52:26 by muyucego         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:46:16 by muyucego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int				key_events(t_game game, int key);
 void			ft_draw_map(t_game *game);
 void			put_wall_img(t_game *game, int x, int a);
 void			ft_xpm_to_image(t_game *game);
-int				ft_check_row(t_data_map *data, char obj);
-int				ft_check_col(t_data_map *data, char obj);
 void			ft_find_player_loc(t_data_map *data);
 void			move_w(t_data_map *data);
 void			move_a(t_data_map *data);
